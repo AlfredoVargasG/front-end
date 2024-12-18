@@ -28,6 +28,14 @@ export class ApiService {
     return this.http.get(`${this.url}/categories`);
   }
 
+  getProducts(page: number, pageSize: number) {
+    return this.http.get(`${this.url}/products?page=${page}&pageSize=${pageSize}`);
+  }
+
+  getProductsSorted(page: number, pageSize: number, sortBy: string, orderDirection: string) {
+    return this.http.get(`${this.url}/products?page=${page}&pageSize=${pageSize}&orderBy=${sortBy}&orderDirection=${orderDirection}`);
+  }
+
   ingresarProducto(producto: any) {
     return this.http.post(`${this.url}/products`, producto);
   }
